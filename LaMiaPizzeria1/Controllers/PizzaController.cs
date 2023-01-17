@@ -2,6 +2,7 @@
 using LaMiaPizzeriaModel.Models;
 using LaMiaPizzeriaModel.Utils;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Client;
 
@@ -22,8 +23,10 @@ namespace LaMiaPizzeriaModel.Controllers
         {
             using (PizzaContext db = new PizzaContext())
             {
+                //Con include gli dico di non usare il lazy coding e di prendermi anche l'oggetto category.
                 Pizza pizzaFound = db.Pizzas
                     .Where(PizzaNelDb => PizzaNelDb.Id == id)
+                    .Include(pizza =>pizza.Category) 
                     .FirstOrDefault();
 
                 if (pizzaFound != null)
@@ -93,30 +96,43 @@ namespace LaMiaPizzeriaModel.Controllers
                     return NotFound("La pizza non è stata trovata");
                 }
 
-                return View("Update", pizzaToModify);
+                List<Category> categories = db.Categories.ToList<Category>();
+
+                PizzaCategoriesView modelForView = new PizzaCategoriesView();
+                modelForView.Pizza = pizzaToModify;
+                modelForView.Categories = categories;
+
+                return View("Update", modelForView);
             }
             
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Pizza formData)
+        public IActionResult Update(int id, PizzaCategoriesView formData)
         {
             if (!ModelState.IsValid)
             {
+                using(PizzaContext db = new PizzaContext())
+                {
+                    List<Category> categories = db.Categories.ToList<Category>();
+                    formData.Categories = categories;
+                }
+
                 return View("Update", formData);
             }
 
             using (PizzaContext db = new PizzaContext())
             {
-                Pizza pizzaToUpdate = db.Pizzas.Where(pizza => pizza.Id == formData.Id).FirstOrDefault();
+                Pizza pizzaToUpdate = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
 
                 if(pizzaToUpdate != null)
                 {
-                    pizzaToUpdate.Image = formData.Image;
-                    pizzaToUpdate.Name = formData.Name;
-                    pizzaToUpdate.Description = formData.Description;
-                    pizzaToUpdate.Price = formData.Price;
+                    pizzaToUpdate.Image = formData.Pizza.Image;
+                    pizzaToUpdate.Name = formData.Pizza.Name;
+                    pizzaToUpdate.Description = formData.Pizza.Description;
+                    pizzaToUpdate.Price = formData.Pizza.Price;
+                    pizzaToUpdate.CategoryId = formData.Pizza.CategoryId;
 
                     db.SaveChanges();
 

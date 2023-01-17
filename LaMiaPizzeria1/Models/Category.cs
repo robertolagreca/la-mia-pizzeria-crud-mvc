@@ -6,7 +6,7 @@
 
         public string Title { get; set; }
 
-        public List<Pizza> Pizza { get; set; }
+        public List<Pizza> Pizzas { get; set; }
 
         public Category() { }
 
