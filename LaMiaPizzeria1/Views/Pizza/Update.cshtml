@@ -1,0 +1,50 @@
+﻿@using LaMiaPizzeriaModel.Models;
+@model Pizza
+
+<div class="container">
+
+    <div class="d-flex align-items-center">
+        <h1 class="text-danger">Modifica pizza</h1>
+    </div>
+
+    <form asp-controller="Pizza" asp-action="Update" method="post">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label>Id:</label>
+            <input asp-for="Id" type="text" class="form-control" disabled />
+        </div>
+        <div class="mb-3 form-check">
+            <label>Path Immagine:</label>
+            <input asp-for="Image" type="text" class="form-control" />
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <label>Nome:</label>
+            <input asp-for="Name" type="text" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-check">
+            <label>Descrizione:</label>
+            <textarea asp-for="Description" rows="10" class="d-block w-100"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <label>Prezzo:</label>
+            <input asp-for="Price" type="text" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <!--NOTA rispetto alle slide e live coding di Bryan ho dovuto aggiungere
+            in button la proprietà formethod e specificare post, soluzione trovata su SLACK.
+            Senza attraverso il debug ho notato che non mi legge HttpPost di Create'
+        -->
+        <div class="d-grid justify-content-end">
+            <button type="submit" class="btn btn-primary btn-danger" formmethod="post">Salva</button>
+        </div>
+
+        <!-- TROVATO SU SLACK <button id="Button" type="submit" name="submit" formmethod="post" class="btn btn-secondary btn-sm btn-danger">Save</button> -->
+    </form>
+</div>
+
+
