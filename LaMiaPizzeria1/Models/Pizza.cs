@@ -30,7 +30,7 @@ namespace LaMiaPizzeriaModel.Models
         public float Price { get; set; }
 
 
-        public int? CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public Category? Category { get; set; }
 
         //Costruttore pizza vuoto utile per quanto si lavora con DB

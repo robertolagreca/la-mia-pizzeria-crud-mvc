@@ -26,7 +26,7 @@ namespace LaMiaPizzeriaModel.Controllers
                 //Con include gli dico di non usare il lazy coding e di prendermi anche l'oggetto category.
                 Pizza pizzaFound = db.Pizzas
                     .Where(PizzaNelDb => PizzaNelDb.Id == id)
-                    .Include(pizza =>pizza.Category) 
+                    .Include(pizza => pizza.Category)
                     .FirstOrDefault();
 
                 if (pizzaFound != null)
