@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LaMiaPizzeriaModel.Views.Pizza
+namespace LaMiaPizzeriaModelConOrdini.Views.Order
 {
     public class CreateModel : PageModel
     {

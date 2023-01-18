@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMiaPizzeriaModel", "LaMiaPizzeria1\LaMiaPizzeriaModel.csproj", "{8521B130-FA38-4B08-8277-2B8708268AB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaMiaPizzeriaModelConOrdini", "LaMiaPizzeriaModelConOrdini\LaMiaPizzeriaModelConOrdini.csproj", "{D6AE1662-C5B7-4182-9B19-66D6B0E00913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMiaPizzeriaModelConOrdini", "LaMiaPizzeriaModelConOrdini\LaMiaPizzeriaModelConOrdini.csproj", "{D6AE1662-C5B7-4182-9B19-66D6B0E00913}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
