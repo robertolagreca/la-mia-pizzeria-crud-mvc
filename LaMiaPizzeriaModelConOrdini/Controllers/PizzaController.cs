@@ -1,10 +1,8 @@
-﻿using LaMiaPizzeriaModel.Database;
-using LaMiaPizzeriaModel.Models;
-using LaMiaPizzeriaModel.Utils;
+﻿
+using LaMiaPizzeriaModelConOrdini.Database;
+using LaMiaPizzeriaModelConOrdini.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Identity.Client;
 
 namespace LaMiaPizzeriaModelConOrdini.Controllers
 {

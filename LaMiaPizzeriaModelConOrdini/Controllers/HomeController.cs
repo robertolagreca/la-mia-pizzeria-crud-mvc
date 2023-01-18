@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace LaMiaPizzeria1.Controllers
+namespace LaMiaPizzeria1LaMiaPizzeriaModelConOrdini.Controllers
 {
     public class HomeController : Controller
     {

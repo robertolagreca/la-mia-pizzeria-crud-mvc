@@ -1,6 +1,6 @@
-﻿using LaMiaPizzeriaModel.Models;
+﻿
 
-namespace LaMiaPizzeriaModel.Utils
+namespace LaMiaPizzeriaModelConOrdini.Utils
 {
     //Classe statica che rappresenta la lista di pizze
     //La lista di pizze sono oggetti di tipo pizza della classe Pizza

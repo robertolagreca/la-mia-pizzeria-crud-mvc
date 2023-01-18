@@ -1,8 +1,6 @@
-﻿using LaMiaPizzeriaModel.Database;
+﻿using LaMiaPizzeriaModelConOrdini.Database;
 using LaMiaPizzeriaModelConOrdini.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Linq;
 
 namespace LaMiaPizzeriaModelConOrdini.Controllers
 {
@@ -54,7 +52,7 @@ namespace LaMiaPizzeriaModelConOrdini.Controllers
 				db.SaveChanges();
 			}
 
-			return RedirectToAction("Index");
+			return RedirectToAction("Index", "Pizza");
 		}
 	}
 }

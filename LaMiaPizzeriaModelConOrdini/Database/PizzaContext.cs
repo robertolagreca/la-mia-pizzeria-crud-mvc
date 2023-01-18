@@ -2,7 +2,7 @@
 using LaMiaPizzeriaModelConOrdini.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace LaMiaPizzeriaModel.Database
+namespace LaMiaPizzeriaModelConOrdini.Database
 {
     public class PizzaContext : DbContext
 	{
