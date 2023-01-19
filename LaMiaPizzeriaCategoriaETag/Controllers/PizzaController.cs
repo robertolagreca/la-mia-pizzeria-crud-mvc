@@ -170,7 +170,7 @@ namespace LaMiaPizzeriaCategoriaETag.Controllers
 
             using (PizzaContext db = new PizzaContext())
             {
-                Pizza pizzaToUpdate = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+                Pizza pizzaToUpdate = db.Pizzas.Where(pizza => pizza.Id == id).Include(pizza => pizza.Tags).FirstOrDefault();
 
                 if(pizzaToUpdate != null)
                 {
@@ -179,6 +179,24 @@ namespace LaMiaPizzeriaCategoriaETag.Controllers
                     pizzaToUpdate.Description = formData.Pizza.Description;
                     pizzaToUpdate.Price = formData.Pizza.Price;
                     pizzaToUpdate.CategoryId = formData.Pizza.CategoryId;
+
+
+                    // rimuoviamo i tag e inseriamo i nuovi
+                    pizzaToUpdate.Tags.Clear();
+
+                    if(formData.TagsSelectedFromMultipleSelect != null) { 
+
+                    foreach (string tagId in formData.TagsSelectedFromMultipleSelect)
+                    {
+                        int tagIdIntFromSelect = int.Parse(tagId);
+
+                        Tag tag = db.Tags.Where(tagDb => tagDb.Id == tagIdIntFromSelect).FirstOrDefault();
+
+                        //si possono mettere eventuali controlli su errori dell' id del tag ecc
+
+                        pizzaToUpdate.Tags.Add(tag);
+                    }
+                }
 
                     db.SaveChanges();
 
