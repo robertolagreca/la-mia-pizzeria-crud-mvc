@@ -72,12 +72,33 @@ namespace LaMiaPizzeriaCategoriaETag.Controllers
                 {
                     List<Category> categories = db.Categories.ToList<Category>();
                     formData.Categories = categories;
+
+                    formData.Tags = TagConverter.getListTagsForMultipleSelect();
                 }
                     return View("Create", formData);
             }
 
             using (PizzaContext db = new PizzaContext())
             {
+
+                if(formData.TagsSelectedFromMultipleSelect != null)
+                {
+                    formData.Pizza.Tags = new List<Tag>();
+
+                    foreach (string tagId in formData.TagsSelectedFromMultipleSelect)
+                    {
+                        int tagIdIntFromSelect = int.Parse(tagId);
+
+                        Tag tag = db.Tags.Where(tagDb => tagDb.Id == tagIdIntFromSelect).FirstOrDefault();
+
+                        //si possono mettere altri controlli
+                        //come controllo errori id ecc.
+
+
+                     formData.Pizza.Tags.Add(tag);
+                    }
+
+                }
                 db.Pizzas.Add(formData.Pizza);
                 db.SaveChanges();
             }
