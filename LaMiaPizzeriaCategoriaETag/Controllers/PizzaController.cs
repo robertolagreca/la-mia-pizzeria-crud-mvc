@@ -2,6 +2,7 @@
 using LaMiaPizzeriaCategoriaETag.Models;
 using LaMiaPizzeriaCategoriaETag.Utils;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Client;
@@ -113,7 +114,7 @@ namespace LaMiaPizzeriaCategoriaETag.Controllers
         {
             using (PizzaContext db = new PizzaContext())
             {
-                Pizza pizzaToModify = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
+                Pizza pizzaToModify = db.Pizzas.Where(pizza => pizza.Id == id).Include(post => post.Tags).FirstOrDefault();
 
                 if (pizzaToModify == null)
                 {
@@ -125,6 +126,27 @@ namespace LaMiaPizzeriaCategoriaETag.Controllers
                 PizzaCategoriesView modelForView = new PizzaCategoriesView();
                 modelForView.Pizza = pizzaToModify;
                 modelForView.Categories = categories;
+
+                List<Tag> listTagFromDb = db.Tags.ToList<Tag>();
+
+                List<SelectListItem> listOptsForSelection= new List<SelectListItem>();
+
+                foreach (Tag tag in listTagFromDb)
+                {
+
+                    // Ricerco se il tag che sto inserindo nella lista delle opzioni della select era già stato selezionato dall'utente
+                    // all'interno della lista dei tag del post da modificare
+
+                    bool itWasSelected = pizzaToModify.Tags.Any(tagsSelected => tagsSelected.Id == tag.Id);
+
+                    SelectListItem singleOptSelection= new SelectListItem() { Text = tag.Title, Value = tag.Id.ToString(), Selected = itWasSelected };
+
+                    listOptsForSelection.Add(singleOptSelection);
+
+                }
+
+                modelForView.Tags = listOptsForSelection;
+
 
                 return View("Update", modelForView);
             }
