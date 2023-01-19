@@ -27,6 +27,7 @@ namespace LaMiaPizzeriaCategoriaETag.Controllers
                 Pizza pizzaFound = db.Pizzas
                     .Where(PizzaNelDb => PizzaNelDb.Id == id)
                     .Include(pizza => pizza.Category)
+                    .Include(pizza => pizza.Tags)
                     .FirstOrDefault();
 
                 if (pizzaFound != null)
@@ -51,6 +52,8 @@ namespace LaMiaPizzeriaCategoriaETag.Controllers
 
                 PizzaCategoriesView modelForView = new PizzaCategoriesView();
                 modelForView.Categories = categoriesFromDb;
+
+                modelForView.Tags = TagConverter.getListTagsForMultipleSelect();
 
                 return View("Create", modelForView);
             }

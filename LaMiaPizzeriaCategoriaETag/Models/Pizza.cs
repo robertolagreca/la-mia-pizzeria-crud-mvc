@@ -33,6 +33,11 @@ namespace LaMiaPizzeriaCategoriaETag.Models
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
 
+
+        public List<Tag>? Tags { get; set; }
+
+
+
         //Costruttore pizza vuoto utile per quanto si lavora con DB
         public Pizza()
         {
