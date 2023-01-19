@@ -1,0 +1,33 @@
+﻿@using LaMiaPizzeriaConCategoriaEOrdini.Models
+@model PizzaOrdersView
+
+<div class="container">
+
+    <form asp-controller="Order" asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+
+            <label>Nome:</label>
+            <input asp-for="Order.Name" type="text" class="form-control"/>
+            <span asp-validation-for="Order.Name" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3 form-check">
+            <label>Categoria:</label>
+            <select asp-for="Order.PizzaId" rows="10" class="d-block w-100">
+                <option value=""></option>
+                @foreach (Pizza pizza in Model.Pizzas)
+                {
+                    <option value="@pizza.Id">@pizza.Name</option>
+                }
+            </select>
+            <span asp-validation-for="Order.PizzaId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salva</button>
+
+    </form>
+
+</div>

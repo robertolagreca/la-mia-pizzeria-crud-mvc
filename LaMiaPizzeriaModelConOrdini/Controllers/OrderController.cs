@@ -32,6 +32,7 @@ namespace LaMiaPizzeriaModelConOrdini.Controllers
 
 		}
 
+
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public IActionResult Create(PizzaOrdersView formData)

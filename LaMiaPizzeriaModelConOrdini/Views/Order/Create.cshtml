@@ -18,14 +18,14 @@
 
         <div class="mb-3 form-check">
             <label>Pizze:</label>
-            <select asp-for="Order.Id" rows="10" class="d-block w-100">
+            <select asp-for="Order.PizzaId" rows="10" class="d-block w-100">
                 <option value=""></option>
                 @foreach (Pizza pizza in Model.Pizzas)
                 {
                         <option value="@pizza.Id">@pizza.Name</option>
                 }
             </select>
-            <span asp-validation-for="Order.Id" class="text-danger"></span>
+            <span asp-validation-for="Order.PizzaId" class="text-danger"></span>
         </div>
 
         <div class="d-grid justify-content-end">

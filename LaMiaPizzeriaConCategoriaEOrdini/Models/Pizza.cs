@@ -1,25 +1,25 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Hosting;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace LaMiaPizzeriaModelConOrdini.Models
+namespace LaMiaPizzeriaConCategoriaEOrdini.Models
 {
     public class Pizza
     {
+
         //MODELLO PIZZA
 
         //Proprietà Pizza
         public int Id { get; set; }
 
         [Column(TypeName = "varchar(300)")]
-        [Required(ErrorMessage ="Il campo è obbligatorio")]
+        [Required(ErrorMessage = "Il campo è obbligatorio")]
         [StringLength(300, ErrorMessage = "Non puoi andare oltre i 300 caratteri")]
         public string Image { get; set; }
 
         [Column(TypeName = "varchar(30)")]
         [Required(ErrorMessage = "Il campo è obbligatorio")]
-       [StringLength(300, ErrorMessage = "Non puoi andare oltre i 100 caratteri")]
+        [StringLength(300, ErrorMessage = "Non puoi andare oltre i 100 caratteri")]
         public string Name { get; set; }
 
         [Column(TypeName = "text")]
@@ -34,9 +34,10 @@ namespace LaMiaPizzeriaModelConOrdini.Models
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
 
-        public List<Order>? Orders { get; set; }
-        //Costruttore pizza vuoto utile per quanto si lavora con DB
-        public Pizza()
+		public Order? Order { get; set; }
+
+		//Costruttore pizza vuoto utile per quanto si lavora con DB
+		public Pizza()
         {
 
         }
@@ -49,5 +50,6 @@ namespace LaMiaPizzeriaModelConOrdini.Models
             Description = description;
             Price = price;
         }
+
     }
 }

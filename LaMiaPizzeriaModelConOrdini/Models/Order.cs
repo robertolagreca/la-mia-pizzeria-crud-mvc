@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace LaMiaPizzeriaModelConOrdini.Models
 {
 	public class Order
@@ -8,8 +9,12 @@ namespace LaMiaPizzeriaModelConOrdini.Models
 
 		public string Title { get; set; }
 
-		public List<Pizza> Pizzas { get; set; }
+		public int PizzaId { get; set; }
+		public Pizza Pizza { get; set; }
 
-		public Order() { }
-	}
+		public Order() 
+		{
+		
+		}
+    }
 }
