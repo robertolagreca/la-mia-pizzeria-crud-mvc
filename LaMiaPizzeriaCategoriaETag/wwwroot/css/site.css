@@ -1,0 +1,43 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*Creazione triangolo con punta in giù*/
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+    border-top: 2em solid white;
+    
+}
+
+.width-txt-dim{
+    width: 20%;
+}
+
+.width-img-dim{
+    width: 200px;
+}
+
+
+.miei-buttons-post {
+   
+    margin: 5px;
+    width: 20px;
+}
