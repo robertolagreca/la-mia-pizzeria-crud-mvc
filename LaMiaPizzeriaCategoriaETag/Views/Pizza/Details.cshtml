@@ -40,6 +40,16 @@
 				}
 			</p>
 
+			<p>
+				<strong>Tags:</strong>
+				@foreach (Tag tag in Model.Tags)
+				{
+					<div>
+						<label>@tag.Title</label>
+					</div>
+				}
+			</p>
+
 
 		</div>
 	</div>

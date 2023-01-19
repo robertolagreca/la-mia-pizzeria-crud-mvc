@@ -47,6 +47,17 @@
             </select>
             <span asp-validation-for="Pizza.CategoryId" class="text-danger"></span>
         </div>
+
+        <div class="mb-3 form-check">
+            <label>Tag:</label>
+            <select asp-for="TagsSelectedFromMultipleSelect" asp-items="@Model.Tags" multiple size="10" class="form-control mb-2 mr-sm-2 ml-sm-3 leftList">
+            </select>
+        </div>
+
+
+
+
+
         <!--NOTA rispetto alle slide e live coding di Bryan ho dovuto aggiungere
             in button la proprietà formethod e specificare post, soluzione trovata su SLACK.
             Senza attraverso il debug ho notato che non mi legge HttpPost di Create'
