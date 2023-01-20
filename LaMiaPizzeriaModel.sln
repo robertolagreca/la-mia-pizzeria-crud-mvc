@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMiaPizzeriaConCategoriaEO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMiaPizzeriaCategoriaETag", "LaMiaPizzeriaCategoriaETag\LaMiaPizzeriaCategoriaETag.csproj", "{567A92D8-CF4E-4280-BD3E-861F2B462D3D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaMiaPizzeriaCategoriaETagELogin", "LaMiaPizzeriaCategoriaETagELogin\LaMiaPizzeriaCategoriaETagELogin.csproj", "{72D31E67-5535-4AF3-ACC3-DC88F2F66A4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{567A92D8-CF4E-4280-BD3E-861F2B462D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{567A92D8-CF4E-4280-BD3E-861F2B462D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{567A92D8-CF4E-4280-BD3E-861F2B462D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D31E67-5535-4AF3-ACC3-DC88F2F66A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D31E67-5535-4AF3-ACC3-DC88F2F66A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D31E67-5535-4AF3-ACC3-DC88F2F66A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D31E67-5535-4AF3-ACC3-DC88F2F66A4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
