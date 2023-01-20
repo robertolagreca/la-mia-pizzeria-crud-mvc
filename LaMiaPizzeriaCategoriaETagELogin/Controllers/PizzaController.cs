@@ -1,6 +1,7 @@
 ﻿using LaMiaPizzeriaCategoriaETagELogin.Database;
 using LaMiaPizzeriaCategoriaETagELogin.Models;
 using LaMiaPizzeriaCategoriaETagELogin.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using Microsoft.Identity.Client;
 
 namespace LaMiaPizzeriaCategoriaETagELogin.Controllers
 {
+    
     public class PizzaController : Controller
     {
         public IActionResult Index()
