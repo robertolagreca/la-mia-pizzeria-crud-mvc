@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using LaMiaPizzeriaCategoriaETagELogin.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddDbContext<PizzaContext>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -10,6 +11,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+//builder.Services.AddRazorPages();
+
 
 var app = builder.Build();
 

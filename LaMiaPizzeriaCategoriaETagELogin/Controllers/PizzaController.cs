@@ -10,7 +10,7 @@ using Microsoft.Identity.Client;
 
 namespace LaMiaPizzeriaCategoriaETagELogin.Controllers
 {
-    
+    [Authorize]
     public class PizzaController : Controller
     {
         public IActionResult Index()
