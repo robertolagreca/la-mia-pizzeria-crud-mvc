@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using LaMiaPizzeriaCategoriaETagELogin.Areas.Identity.Data;
+//using LaMiaPizzeriaCategoriaETagELogin.Area.Identity.Data;
+using LaMiaPizzeriaCategoriaETagELogin.Database;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
